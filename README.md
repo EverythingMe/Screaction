@@ -4,7 +4,7 @@ Installation
 ------------
 
 1. [Download](https://github.com/doat/Screaction/downloads) or fork.
-2. Call it from the page `<script src="Screaction.min.js"></script>`
+2. Call the script from you html page `<script src="Screaction.min.js"></script>`
 3. Prepare a configuration object.
 4. Call `Screaction.init(cfg)` when DOM is ready.
 
