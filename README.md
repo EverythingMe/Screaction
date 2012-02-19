@@ -14,7 +14,7 @@ Example usage
 ```
 // configuraition object
 var cfg = {
-    "scrollRange": "0-400",
+    "scrollRange": "50-300",
     "items": [{
         "element": document.getElementById("el"),
         "props": [{
@@ -34,13 +34,13 @@ window.onload = function(){
 Simple configuration
 --------------------
 
-*scrollRange*
-Defines the start and end scrollbar position (in pixels) in which you desire the animations to occur.
+**scrollRange** - 
+Defines the start and end scrollbar position (in pixels) in which you desire the animations to occur. (optional. Default is "0-400")
 
-*items*
+**items** - 
 A list of items and their animation properties.
 
-*item*
+**item** - 
 An element and it's animation properties.
 
 ```
