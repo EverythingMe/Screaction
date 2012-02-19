@@ -37,7 +37,13 @@ var Screaction = new function(){
     
     function calculateRatio() {
         var pageY = getPageY();
-        return pageY <= range[0] ? 1 : pageY > range[1] ? 0 : 1-(pageY/range[1]);
+        if (pageY <= range[0]){
+            return 1;
+        } else if (pageY > range[1]) {
+            return 0;
+        } else {
+            return 1-((pageY-range[0])/(range[1]-range[0]));
+        }
     }
     
     function renderTemplate(search, replace, str) {
@@ -46,8 +52,8 @@ var Screaction = new function(){
     
     function Item(el, cfg) {
         var prop = cfg.name,
-            startVal = cfg.startValue,
-            endVal = cfg.endValue,
+            startVal = cfg.start,
+            endVal = cfg.end,
             valTmpl = cfg.valueTemplate || "{value}px";
 
         this.update = function(ratio) {
