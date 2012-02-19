@@ -1,4 +1,5 @@
 You scroll - elements react. Simple and lightweight.
+1KB, no dependencies, all modern desktop browsers.
 
 Installation
 ------------
