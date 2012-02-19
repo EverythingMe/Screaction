@@ -45,16 +45,61 @@ An element and it's animation properties.
 
 ```
 {
-  "element": document.getElementById("el"),
-  "props": [{
-    "name": {style property name}, // any element.style key
-    "start": {start value}, // numeric
-    "end": {end value} // numeric
-  }]
+      "element": {DOM element},
+      "props": [{
+        "name": {style property name}, // any element.style key
+        "start": {start value}, // numeric
+        "end": {end value} // numeric
+      }]
 }
 ```
 
+Advanced
+--------
 
+By default, all start/end values are post fixed with a "px" unit. It can be overriden using a template definition:
 
+```
+{
+      "element": document.getElementById("el"),
+      "props": [{
+        "name": "width",
+        "valueTemplate": "{value}%"
+        "start": 100,
+        "end": 200
+      }]
+}
+```
 
+Here's another example, with two values per property:
+```
+{
+    "element": document.getElementById("el"),
+    "props": [{
+        "name": "backgroundSize",
+        "valueTemplate": "{value}% {value}%"
+        "start": [100, 100],
+        "end": [200, 200]
+    }]
+}
+```
 
+If a single element has multiple properties to be influenced, you can use shorthand:
+```
+{
+    "element": document.getElementById("el"),
+    "props": [{
+        "name": "top",
+        "start": 50,
+        "end": 10
+    }, {
+        "name": "left",
+        "start": 20,
+        "end": 75
+    }, {
+        "name": "opacity",
+        "start": 1,
+        "end": 0.5
+    }]
+}
+```
