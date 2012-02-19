@@ -38,7 +38,7 @@ Simple configuration
 Defines the start and end scrollbar position (in pixels) in which you desire the animations to occur. (optional. Default is "0-400")
 
 **items** - 
-A list of items and their animation properties.
+A list of items.
 
 **item** - 
 An element and it's animation properties.
@@ -57,7 +57,8 @@ An element and it's animation properties.
 Advanced
 --------
 
-By default, all start/end values are post fixed with a "px" unit. It can be overriden using a template definition:
+By default, all start/end values are post fixed with a "px" unit.
+**For other units**, override with a template definition where `{value}` is where the calculated value will go:
 
 ```
 {
@@ -71,7 +72,7 @@ By default, all start/end values are post fixed with a "px" unit. It can be over
 }
 ```
 
-Here's another example, with two values per property:
+Here's another example, with **two values per property**:
 
 ```
 {
@@ -85,7 +86,7 @@ Here's another example, with two values per property:
 }
 ```
 
-If a single element has multiple properties to be influenced, you can use shorthand:
+If a single element has **multiple properties** to be affected, you can use shorthand:
 
 ```
 {
