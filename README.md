@@ -5,13 +5,14 @@ Installation
 
 1. [Download](https://github.com/doat/Screaction/downloads) or fork.
 2. Call it from the page `<script src="Screaction.min.js"></script>`
-3. Prepare a config object.
+3. Prepare a configuration object.
 4. Call `Screaction.init(cfg)` when DOM is ready.
 
 Example usage
 ----------
 
 ```
+// configuraition object
 var cfg = {
     "scrollRange": "0-400",
     "items": [{
@@ -24,6 +25,7 @@ var cfg = {
     }]
 };
 
+// load it
 window.onload = function(){
     Screaction.init(cfg);
 }
