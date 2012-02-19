@@ -72,6 +72,7 @@ By default, all start/end values are post fixed with a "px" unit. It can be over
 ```
 
 Here's another example, with two values per property:
+
 ```
 {
     "element": document.getElementById("el"),
@@ -85,6 +86,7 @@ Here's another example, with two values per property:
 ```
 
 If a single element has multiple properties to be influenced, you can use shorthand:
+
 ```
 {
     "element": document.getElementById("el"),
