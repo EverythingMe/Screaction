@@ -9,6 +9,11 @@ Installation
 3. Prepare a configuration object.
 4. Call `Screaction.init(cfg)` when DOM is ready.
 
+Demo
+----
+
+[Fixed header](http://doat.github.com/Screaction/examples/fixed-header.html)
+
 Example usage
 ----------
 
