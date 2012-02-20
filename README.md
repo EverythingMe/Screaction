@@ -107,3 +107,12 @@ If a single element has **multiple properties** to be affected, you can use shor
     }]
 }
 ```
+
+You can attach a callback function and get the current scroll *ratio*
+
+```
+Screaction.onScroll(function(ratio){
+    // your code
+});
+```
+ 

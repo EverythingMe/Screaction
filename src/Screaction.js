@@ -3,9 +3,9 @@
  */
 var Screaction = new function(){
                 
-    var range, itemArr = [], itemArrLen;
+    var range, itemArr = [], itemArrLen, onScrollCallback;
     
-    this.init = function(cfg){
+    this.init = function(cfg) {
         cfg.items.forEach(registerItem);
         itemArrLen = itemArr.length;
         
@@ -14,6 +14,10 @@ var Screaction = new function(){
         window.onscroll = onScroll;
         
         onScroll();
+    };
+    
+    this.onScroll = function(cb) {
+        onScrollCallback = cb;
     };
     
     function registerItem(cfg) {
@@ -25,6 +29,8 @@ var Screaction = new function(){
     
     function onScroll() {
         var ratio = calculateRatio();
+        
+        onScrollCallback && onScrollCallback(ratio);
 
         for (var i=0; i<itemArrLen; i++) {
             itemArr[i].update(ratio);
@@ -37,13 +43,10 @@ var Screaction = new function(){
     
     function calculateRatio() {
         var pageY = getPageY();
-        if (pageY <= range[0]){
-            return 1;
-        } else if (pageY > range[1]) {
-            return 0;
-        } else {
-            return 1-((pageY-range[0])/(range[1]-range[0]));
-        }
+        
+        return pageY <= range[0] ? 1 :
+                pageY > range[1] ? 0 :
+                1-((pageY-range[0])/(range[1]-range[0]));
     }
     
     function renderTemplate(search, replace, str) {
