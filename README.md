@@ -12,7 +12,8 @@ Installation
 Demo
 ----
 
-[Fixed header](http://doat.github.com/Screaction/examples/fixed-header.html)
+* [Fixed header](http://doat.github.com/Screaction/examples/fixed-header.html)
+* [The Everything.me blog](http://blog.everything.me)
 
 Example usage
 ----------
