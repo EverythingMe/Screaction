@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Screaction by doat</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Screaction</h1>
+        <p>A js script enabling you to change css values as the page scrolls</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/doat/Screaction" class="button fork"><strong>Fork On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/doat/Screaction/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/doat/Screaction/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <p>Page scrolls - elements react. Simple and lightweight.
+1KB, no dependencies, all modern desktop browsers.</p>
+
+<h2>Installation</h2>
+
+<ol>
+<li>
+<a href="https://github.com/doat/Screaction/downloads">Download</a> or fork.</li>
+<li>Call the script from you html page <code>&lt;script src="Screaction.min.js"&gt;&lt;/script&gt;</code>
+</li>
+<li>Prepare a configuration object.</li>
+<li>Call <code>Screaction.init(cfg)</code> when DOM is ready.</li>
+</ol><h2>Demo</h2>
+
+<ul>
+<li><a href="http://doat.github.com/Screaction/examples/fixed-header.html">Fixed header</a></li>
+<li><a href="http://blog.everything.me">The Everything.me blog</a></li>
+</ul><h2>Example usage</h2>
+
+<pre><code>// configuraition object
+var cfg = {
+    "scrollRange": "50-300",
+    "items": [{
+        "element": document.getElementById("el"),
+        "props": [{
+            "name": "height",
+            "start": 100,
+            "end": 200
+        }]
+    }]
+};
+
+// load it
+window.onload = function(){
+    Screaction.init(cfg);
+}
+</code></pre>
+
+<h2>Simple configuration</h2>
+
+<p><strong>scrollRange</strong> - 
+Defines the start and end scrollbar position (in pixels) in which you desire the animations to occur. (optional. Default is "0-400")</p>
+
+<p><strong>items</strong> - 
+A list of items.</p>
+
+<p><strong>item</strong> - 
+An element and it's animation properties.</p>
+
+<pre><code>{
+      "element": {DOM element},
+      "props": [{
+        "name": {style property name}, // any element.style key
+        "start": {start value}, // numeric
+        "end": {end value} // numeric
+      }]
+}
+</code></pre>
+
+<h2>Advanced</h2>
+
+<p>By default, all start/end values are post fixed with a "px" unit.
+<strong>For other units</strong>, override with a template definition where <code>{value}</code> is where the calculated value will go:</p>
+
+<pre><code>{
+      "element": document.getElementById("el"),
+      "props": [{
+        "name": "width",
+        "valueTemplate": "{value}%"
+        "start": 100,
+        "end": 200
+      }]
+}
+</code></pre>
+
+<p>Here's another example, with <strong>two values per property</strong>:</p>
+
+<pre><code>{
+    "element": document.getElementById("el"),
+    "props": [{
+        "name": "backgroundSize",
+        "valueTemplate": "{value}% {value}%"
+        "start": [100, 100],
+        "end": [200, 200]
+    }]
+}
+</code></pre>
+
+<p>If a single element has <strong>multiple properties</strong> to be affected, you can use shorthand:</p>
+
+<pre><code>{
+    "element": document.getElementById("el"),
+    "props": [{
+        "name": "top",
+        "start": 50,
+        "end": 10
+    }, {
+        "name": "left",
+        "start": 20,
+        "end": 75
+    }, {
+        "name": "opacity",
+        "start": 1,
+        "end": 0.5
+    }]
+}
+</code></pre>
+
+<p>You can attach a callback function and get the current scroll <em>ratio</em></p>
+
+<pre><code>Screaction.onScroll(function(ratio){
+    // your code
+});
+</code></pre>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/doat">doat</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
